@@ -19,4 +19,8 @@ app.get('/ysy.jpg', function (req, res) {
     // res.end(img, 'binary');
 })
 
-app.listen("8080")
+var port = process.env.PORT || 80
+
+app.listen(port, function() {
+    console.log('listening on ' + port);
+})
