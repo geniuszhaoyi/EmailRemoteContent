@@ -19,4 +19,4 @@ app.get('/ysy.jpg', function (req, res) {
     // res.end(img, 'binary');
 })
 
-app.listen("80", '0.0.0.0')
+app.listen("80")
