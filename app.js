@@ -11,7 +11,10 @@ var imgs = [
 var current = 0;
 
 app.get('/ysy.jpg', function (req, res) {
-    res.setHeader( 'Content-Type', 'image/gif' );
+    res.setHeader('Content-Type', 'image/gif');
+    res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+    res.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+    res.setHeader("Expires", "0"); // Proxies.
     res.status(200);
     res.send(imgs[current]);
     console.log('Someone visited the image. Served image #' + current);
@@ -20,13 +23,13 @@ app.get('/ysy.jpg', function (req, res) {
     // res.end(img, 'binary');
 });
 
-app.get('/set/:current', function(req, res) {
+app.get('/set/:current', function (req, res) {
     current = req.params.current
     res.send('ok');
 })
 
 var port = process.env.PORT || 80
 
-app.listen(port, function() {
+app.listen(port, function () {
     console.log('listening on ' + port);
 })
