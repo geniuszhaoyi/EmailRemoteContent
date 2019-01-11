@@ -14,6 +14,7 @@ app.get('/ysy.jpg', function (req, res) {
     res.setHeader( 'Content-Type', 'image/gif' );
     res.status(200);
     res.send(imgs[current]);
+    console.log('Someone visited the image. Served image #' + current);
     current = (current + 1) % imgs.length;
     // res.writeHead(200, { 'Content-Type': 'image/gif' });
     // res.end(img, 'binary');
